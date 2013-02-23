@@ -30,7 +30,7 @@
 	<div class="container">
 		<div class="sidebar three columns">
         	<nav>
-        		<h3 id="logo" class="lanePosh"> Willy Wonka's Event</h3>
+        		<h3 id="logo" class="lanePosh"> Registration Confirmation</h3>
      
         		<ul>
         			<li>A Nav Item</li>
@@ -40,28 +40,16 @@
         </div>
         <div class="content twelve columns offset-by-three">
 	        <header>
-		        <h1 class="lane large"> Wily Wonka Event's</h1>
+		        <h1 class="lane large"> Registration Confirmation</h1>
 	            <hr class="large" />
-	            <p>Welcome to the Willy Wonka Event Management Site. Create an event, sell tickets and manage registration.</p>
-<p>CREATE AN EVENT</p>
-<p>Event Name:</p>
-<p>Start Time:</p>
-<p>End Time:</p>
-<p>Location:</p>
-<p>Host:</p>
-<p>Host email:</p>
-<p>Host password:</p>
-<p>Number of Attendees: </p>
+	            <p>Dear <%=attendee%>,<br> Your payment of <%=price%> has been received and you are confirmed as attending <%=eventname%> at <%=starttime%> on <%=date%>.
+Your confirmation number is <%=conf_num%>. Please save this for your records.</p>
+
         	</header>
         	<hr class="large">
         	
 	    </div>
     </div>
 		
-		<a class="dwolla_button" href="http://www.yoursite.com" data-key="[YOUR KEY HERE]" data-tax="0" data-shipping="2.99" data-amount="9.95" data-desc="My goods are better than your goods" data-name="Goods">Buy My Goods</a>
 
-	<script src="/js/" type="text/javascript"></script>
-	
-	<script src="/content/home.js" type="text/javascript"></script>
-	<script type="text/javascript" src="https://www.dwolla.com/scripts/button.min.js"></script>
 </body>
