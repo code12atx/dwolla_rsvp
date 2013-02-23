@@ -63,7 +63,7 @@ app.post('/', function(req, res, next) {
 
 						var post = { eventname: req.body.eventname, location:req.body.location };
 						var sha = crypto.createHash('sha1');  
-						sha.update(name);
+						sha.update(JSON.stringify(post));
 						post.sha = sha.digest('hex');
 
 						db.save('event/'+post.sha, post, function(){
