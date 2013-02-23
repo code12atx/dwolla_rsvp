@@ -82,16 +82,25 @@ app.get('/event/:id', function(req, res, next) {
 });
 
 app.post('/rsvp', function(req, res, next) {
+    var data = db.get('event/' + req.body.eventId, function(eventData){
+		var post = req.body;
+        post.event = eventData;
+		var sha = crypto.createHash('sha1');  
+		sha.update(JSON.stringify(post));
+		post.sha = sha.digest('hex');
+		db.save('rsvp/'+post.sha, post, function(){
+            res.redirect('/rsvp/'+post.sha); 
+			//res.render(global.DIR + '/views/rsvp.ejs', post);
+		});
+    });                        							
+});
 
-						var post = req.body;
-						var sha = crypto.createHash('sha1');  
-						sha.update(JSON.stringify(post));
-						post.sha = sha.digest('hex');
-
-						db.save('rsvp/'+post.sha, post, function(){
-								res.render(global.DIR + '/views/rsvp.ejs', post);
-						});
-                            							
+app.get('/rsvp/:id', function(req, res, next) {
+    var data = db.get('rsvp/' + req.params.id, function(data){
+        if(data){
+            res.render(global.DIR + '/views/rsvp.ejs', data);
+        }
+    });
 });
 
 /* Leader */
