@@ -56,7 +56,7 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 
 // Pages
 app.get('/', function(req, res, next) {
-				res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar'});
+				res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar', sha:'sha'});
 });
 
 app.post('/', function(req, res, next) {
@@ -75,7 +75,7 @@ app.post('/', function(req, res, next) {
 app.get('/event/:id', function(req, res, next) {
     var data = db.get('event/' + req.params.id, function(data){
         if(data){
-            res.render(global.DIR + '/views/event.ejs', { version:data.a, siteName:data.siteName });
+            res.render(global.DIR + '/views/event.ejs', data);
         }
     });
 });
