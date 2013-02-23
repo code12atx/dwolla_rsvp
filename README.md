@@ -1,6 +1,9 @@
 == Heroku Node Express Boilerplate ==
 ==========
 
+
+
+
 This is a Heroku Node.js Express Boilerplate. It is practically a one button install to have a running Node.js application server running in the cloud. It includes ejs templates, a file system database and perpares files for the frontend by automatically bundles javascript and css files for delivery. It also includes a sweet frontend library that includes things like base styles, custom fonts, and responsive design.
 
 == Heroku ==
