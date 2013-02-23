@@ -9,6 +9,8 @@ global.PORT = process.env.PORT || 5000;
 var JSON = require('JSON');
 var _ = require('underscore');
 
+var crypto = require('crypto');
+
 // included if you need them \\
 // var fs = require('fs'); // disable this in production for extra security
 // var http = require('http');
@@ -49,6 +51,12 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
         }
     });
 });
+
+
+// sha = crypto.createHash('sha1');  
+// sha.update(name);
+// data.sha = sha.digest('hex');
+
 
 // Pages
 app.get('/', function(req, res, next) {
