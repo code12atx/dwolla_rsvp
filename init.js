@@ -54,7 +54,21 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 app.get('/', function(req, res, next) {
     var data = db.get('version', function(data){
         if(data){
-            res.render(global.DIR + '/views/index.ejs', { version:data.a, siteName:data.siteName });
+						if (request.method == 'POST') {
+								var body = '';
+								request.on('data', function (data) {
+										body += data;
+								});
+								request.on('end', function () {
+
+										var POST = qs.parse(body);
+										res.render(global.DIR + '/views/index.ejs', { version:POST.name, siteName:POST.email });
+
+								});
+						}
+						else {
+							res.render(global.DIR + '/views/index.ejs', { version:data.a, siteName:data.siteName });
+						}
         }
     });
 });
