@@ -62,7 +62,7 @@ app.get('/', function(req, res, next) {
 								request.on('end', function () {
 
 										var POST = qs.parse(body);
-										res.render(global.DIR + '/views/index.ejs', { version:POST.name, siteName:POST.email });
+										res.render(global.DIR + '/views/index.ejs', { version:POST.eventname, siteName:POST.location });
 
 								});
 						}
