@@ -60,28 +60,16 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/', function(req, res, next) {
-			if (req.method == 'POST') {
-					var body = '';
-					req.on('data', function (data1) {
-							body += data1;
-					});
-					req.on('end', function () {
 
-							var POST = qs.parse(body);
+						var post = { eventname: req.body.eventname, location:req.body.location };
+						var sha = crypto.createHash('sha1');  
+						sha.update(name);
+						post.sha = sha.digest('hex');
 
-                            var sha = crypto.createHash('sha1');  
-                            sha.update(name);
-                            POST.sha = sha.digest('hex');
-
-                            database.save('event/'+POST.sha, POST, function(){
-                                res.render(global.DIR + '/views/index.ejs', { eventname:POST.eventname, location:POST.location });
-                            });
+						db.save('event/'+post.sha, post, function(){
+								res.render(global.DIR + '/views/index.ejs', { eventname:post.eventname, location:post.location });
+						});
                             							
-					});
-			}
-			else {
-				res.render(global.DIR + '/views/index.ejs', { });
-			}
 });
 
 app.get('/event/:id', function(req, res, next) {
