@@ -61,7 +61,7 @@ app.get('/', function(req, res, next) {
 
 app.post('/', function(req, res, next) {
 
-						var post = { eventname: req.body.eventname, location:req.body.location, host:req.body.host };
+						var post = req.body;
 						var sha = crypto.createHash('sha1');  
 						sha.update(JSON.stringify(post));
 						post.sha = sha.digest('hex');
@@ -82,7 +82,7 @@ app.get('/event/:id', function(req, res, next) {
 
 app.post('/rsvp', function(req, res, next) {
 
-						var post = { Firstname: req.body.Firstname, Lastname:req.body.Lastname, Email:req.body.Email, Phonenumber:req.body.Phonenumber };
+						var post = req.body;
 						var sha = crypto.createHash('sha1');  
 						sha.update(JSON.stringify(post));
 						post.sha = sha.digest('hex');
