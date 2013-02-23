@@ -54,8 +54,8 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 app.get('/', function(req, res, next) {
 			if (req.method == 'POST') {
 					var body = '';
-					req.on('data', function (data) {
-							body += data;
+					req.on('data', function (data1) {
+							body += data1;
 					});
 					req.on('end', function () {
 
@@ -65,7 +65,7 @@ app.get('/', function(req, res, next) {
 					});
 			}
 			else {
-				res.render(global.DIR + '/views/index.ejs', { version:data.a, siteName:data.siteName });
+				res.render(global.DIR + '/views/index.ejs', { });
 			}
 });
 
