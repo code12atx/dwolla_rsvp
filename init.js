@@ -67,7 +67,7 @@ app.post('/', function(req, res, next) {
 						post.sha = sha.digest('hex');
 
 						db.save('event/'+post.sha, post, function(){
-								res.render(global.DIR + '/views/index.ejs', post);
+								res.render(global.DIR + '/views/event.ejs', post);
 						});
                             							
 });
