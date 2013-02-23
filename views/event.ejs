@@ -30,7 +30,7 @@
 	<div class="container">
 		<div class="sidebar three columns">
         	<nav>
-        		<h3 id="logo" class="lanePosh">Willy Wonka's Event</h3>
+        		<h3 id="logo" class="lanePosh"><%=host%>'s Event</h3>
      
         		<ul></ul>
      
@@ -38,14 +38,14 @@
         </div>
         <div class="content twelve columns offset-by-three">
 	        <header>
-		        <h1 class="lane large">Willy Wonka's Event</h1>
+		        <h1 class="lane large"><%=host%>'s Event</h1>
 	            <hr class="large" />
-	            <p>Willy Wonka's Factory Tour</p>
-			<form action="demo_form.asp" method="get">
+	            <p><%=eventname%></p>
+			<form action="/rsvp" method="post">
   Firstname<input type="text" name="Firstname" value="Joe"><br>
   Lastname<input type="text" name="Lastname" value="DiMaggio"><br>
   Email<input type="email" name="Email" value="joe@dimaggio.com"><br>
-  Phone Number<input type="text" name="Phone Number" value="618-867-5309"><br>
+  Phone Number<input type="text" name="Phonenumber" value="618-867-5309"><br>
   <input type="submit" value="Submit">
 </form>
 
