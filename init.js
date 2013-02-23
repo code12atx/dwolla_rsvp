@@ -56,12 +56,12 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 
 // Pages
 app.get('/', function(req, res, next) {
-				res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar'});
+				res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar', sha:'sha'});
 });
 
 app.post('/', function(req, res, next) {
 
-						var post = { eventname: req.body.eventname, location:req.body.location, sha:'' };
+						var post = { eventname: req.body.eventname, location:req.body.location };
 						var sha = crypto.createHash('sha1');  
 						sha.update(JSON.stringify(post));
 						post.sha = sha.digest('hex');
