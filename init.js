@@ -53,10 +53,6 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 });
 
 
-// sha = crypto.createHash('sha1');  
-// sha.update(name);
-// data.sha = sha.digest('hex');
-
 
 // Pages
 app.get('/', function(req, res, next) {
@@ -72,8 +68,15 @@ app.post('/', function(req, res, next) {
 					req.on('end', function () {
 
 							var POST = qs.parse(body);
-							res.render(global.DIR + '/views/index.ejs', { eventname:POST.eventname, location:POST.location });
 
+                            var sha = crypto.createHash('sha1');  
+                            sha.update(name);
+                            POST.sha = sha.digest('hex');
+
+                            database.save('event/'+POST.sha, POST, function(){
+                                res.render(global.DIR + '/views/index.ejs', { eventname:POST.eventname, location:POST.location });
+                            });
+                            							
 					});
 			}
 			else {
