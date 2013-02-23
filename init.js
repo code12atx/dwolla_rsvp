@@ -60,7 +60,7 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 
 // Pages
 app.get('/', function(req, res, next) {
-				res.render(global.DIR + '/views/index.ejs', { });
+				res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar'});
 });
 
 app.post('/', function(req, res, next) {
