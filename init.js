@@ -75,7 +75,7 @@ app.post('/', function(req, res, next) {
 app.get('/event/:id', function(req, res, next) {
     var data = db.get('event/' + req.params.id, function(data){
         if(data){
-            res.render(global.DIR + '/views/index.ejs', { version:data.a, siteName:data.siteName });
+            res.render(global.DIR + '/views/event.ejs', { version:data.a, siteName:data.siteName });
         }
     });
 });
