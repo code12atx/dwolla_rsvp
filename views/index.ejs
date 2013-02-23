@@ -42,8 +42,20 @@
 	        <header>
 		        <h1 class="lane large"> Wily Wonka Event Manager</h1>
 	            <hr class="large" />
-	            <p>Welcome to the Willy Wonka Event Management Site. Create an event, sell tickets and manage registration.</p>
 <p>CREATE AN EVENT</p>
+	            <p>Welcome to the Willy Wonka Event Management Site. Create an event, sell tickets and manage registration.</p>
+<form action="/" method="post">
+  <input type="text" name="eventname" placeholder="Event Name">EventName<br>
+  <input type="datetime-local" name="starttime" placeholder="1:00 am">StartTime<br>
+  <input type="datetime-local" name="endtime" placeholder="2:00 am">EndTime<br>
+  <input type="text" name="location" placeholder="The house at the end of the street">Location<br>
+  <input type="text" name="host" placeholder="Willy Wonka">Host<br>
+  <input type="email" name="hostemail" placeholder="will@wonka.com">HostEmail<br>
+  <input type="password" name="password" placeholder="password">Password<br>
+  <input type=number" name="numattendee" placeholder="10">NumAttendees<br>
+  <input type="submit" value="Submit">
+</form>
+
 <p>Event Name:</p>
 <p>Start Time:</p>
 <p>End Time:</p>
