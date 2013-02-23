@@ -52,25 +52,21 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 
 // Pages
 app.get('/', function(req, res, next) {
-    var data = db.get('version', function(data){
-        if(data){
-						if (request.method == 'POST') {
-								var body = '';
-								request.on('data', function (data) {
-										body += data;
-								});
-								request.on('end', function () {
+			if (req.method == 'POST') {
+					var body = '';
+					req.on('data', function (data) {
+							body += data;
+					});
+					req.on('end', function () {
 
-										var POST = qs.parse(body);
-										res.render(global.DIR + '/views/index.ejs', { version:POST.eventname, siteName:POST.location });
+							var POST = qs.parse(body);
+							res.render(global.DIR + '/views/index.ejs', { version:POST.eventname, siteName:POST.location });
 
-								});
-						}
-						else {
-							res.render(global.DIR + '/views/index.ejs', { version:data.a, siteName:data.siteName });
-						}
-        }
-    });
+					});
+			}
+			else {
+				res.render(global.DIR + '/views/index.ejs', { version:data.a, siteName:data.siteName });
+			}
 });
 
 app.get('/event/:id', function(req, res, next) {
