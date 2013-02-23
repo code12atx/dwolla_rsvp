@@ -60,6 +60,10 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
 
 // Pages
 app.get('/', function(req, res, next) {
+				res.render(global.DIR + '/views/index.ejs', { });
+});
+
+app.post('/', function(req, res, next) {
 			if (req.method == 'POST') {
 					var body = '';
 					req.on('data', function (data1) {
@@ -68,7 +72,7 @@ app.get('/', function(req, res, next) {
 					req.on('end', function () {
 
 							var POST = qs.parse(body);
-							res.render(global.DIR + '/views/index.ejs', { version:POST.eventname, siteName:POST.location });
+							res.render(global.DIR + '/views/index.ejs', { eventname:POST.eventname, location:POST.location });
 
 					});
 			}
