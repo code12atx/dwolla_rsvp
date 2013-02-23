@@ -30,7 +30,7 @@
 	<div class="container">
 		<div class="sidebar three columns">
         	<nav>
-        		<h3 id="logo" class="lanePosh"><%= siteName %> <small>v<%= version %></small></h3>
+        		<h3 id="logo" class="lanePosh">Willy Wonka's Event</h3>
      
         		<ul></ul>
      
@@ -38,7 +38,7 @@
         </div>
         <div class="content twelve columns offset-by-three">
 	        <header>
-		        <h1 class="lane large"><%= siteName %></h1>
+		        <h1 class="lane large">Willy Wonka's Event</h1>
 	            <hr class="large" />
 	            <p>Willy Wonka's Factory Tour</p>
 			<form action="demo_form.asp" method="get">
@@ -49,11 +49,18 @@
   <input type="submit" value="Submit">
 </form>
 
+	<div>
+		Or register here:
+		<a href="http://stark-garden-7198.herokuapp.com/event/<%= sha %>" class="dwolla_button" data-name="Attendance" data-desc="The Best Event Ever" data-amount="0.01" data-shipping="0.00" data-tax="0" data-key="aIujh12ce4+ecIEhkrTwzex7VdnDbhwtDbC34j1gSPS+LqyKnM">RSVP</a>
+
+		<script type="text/javascript" src="https://www.dwolla.com/scripts/button.min.js"> </script>
+	</div>
+
         	</header>
         	<hr class="large">
         	<div class="doc-section" id="value">
         		<div class="row">
-        			<div class="one columns caps bold">version</div><div class="five columns offset-by-one"><%= version %></div>
+        			<div class="one columns caps bold">version</div><div class="five columns offset-by-one"></div>
         		</div>
         	</div>
 	    </div>
