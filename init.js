@@ -61,7 +61,7 @@ app.get('/', function(req, res, next) {
 
 app.post('/', function(req, res, next) {
 
-						var post = { eventname: req.body.eventname, location:req.body.location };
+						var post = { eventname: req.body.eventname, location:req.body.location, sha:'' };
 						var sha = crypto.createHash('sha1');  
 						sha.update(JSON.stringify(post));
 						post.sha = sha.digest('hex');
