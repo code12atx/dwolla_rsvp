@@ -3,21 +3,19 @@
 global.DIR = process.env.PWD || '/default/path/to/project';
 global.PORT = process.env.PORT || 5000;
 
-
 /* Librarian */
 
 var JSON = require('JSON');
 var _ = require('underscore');
-
 var crypto = require('crypto');
 
 // included if you need them \\
-// var fs = require('fs'); // disable this in production for extra security
+// var fs = require('fs'); 
 // var http = require('http');
 // var $ = require('jQuery');
 // var async = require('async');
 // var check = require('validator').check,
-//    sanitize = require('validator').sanitize;
+//     sanitize = require('validator').sanitize;
 
 
 /* Application */
@@ -52,24 +50,22 @@ app.get('/data/:table/:sha?/:format?', function(req, res, next) {
     });
 });
 
-
-
 // Pages
 app.get('/', function(req, res, next) {
-				res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar', sha:'sha'});
+	res.render(global.DIR + '/views/index.ejs', { eventname:'foo', location:'bar', sha:'sha'});
 });
 
 app.post('/', function(req, res, next) {
 
-						var post = req.body;
-						var sha = crypto.createHash('sha1');  
-						sha.update(JSON.stringify(post));
-						post.sha = sha.digest('hex');
+	var post = req.body;
+	var sha = crypto.createHash('sha1');  
+	sha.update(JSON.stringify(post));
+	post.sha = sha.digest('hex');
 
-						db.save('event/'+post.sha, post, function(){
-                            res.redirect('/event/'+post.sha); 
-							//res.render(global.DIR + '/views/event.ejs', post);
-						});
+	db.save('event/' + post.sha, post, function(){
+        res.redirect('/event/' + post.sha); 
+		//res.render(global.DIR + '/views/event.ejs', post);
+	});
                             							
 });
 
@@ -88,8 +84,8 @@ app.post('/rsvp', function(req, res, next) {
 		var sha = crypto.createHash('sha1');  
 		sha.update(JSON.stringify(post));
 		post.sha = sha.digest('hex');
-		db.save('rsvp/'+post.sha, post, function(){
-            res.redirect('/rsvp/'+post.sha); 
+		db.save('rsvp/' + post.sha, post, function(){
+            res.redirect('/rsvp/' + post.sha); 
 			//res.render(global.DIR + '/views/rsvp.ejs', post);
 		});
     });                        							
